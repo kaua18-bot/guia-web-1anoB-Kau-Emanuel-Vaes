@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Práticas - Guia Profissional de Desenvolvimento Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">Guia Profissional de Desenvolvimento Web</h1>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="nav__toggle-bar"></span>
+                    <span class="nav__toggle-bar"></span>
+                    <span class="nav__toggle-bar"></span>
+                </button>
+                <ul class="nav__menu" id="nav-menu">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="tecnologias.html" class="nav__link">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html" class="nav__link">Boas Práticas</a></li>
+                    <li><a href="fluxo.html" class="nav__link">Fluxo</a></li>
+                    <li><a href="quiz.html" class="nav__link">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="boas-praticas">
+            <div class="boas-praticas__container">
+                <h2 class="section-title">Boas Práticas de Desenvolvimento</h2>
+                
+                <div class="progress">
+                    <div class="progress__bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <span class="progress__text">0% Completo</span>
+                </div>
+
+                <div class="accordion">
+                    <!-- Semântica & Acessibilidade -->
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <h3>Semântica & Acessibilidade</h3>
+                            <span class="accordion__icon">+</span>
+                        </button>
+                        <div class="accordion__content">
+                            <div class="checklist">
+                                <label class="checklist__item">
+                                    <input type="checkbox" data-save="semantica-1">
+                                    Use elementos semânticos (header, nav, main, article)
+                                </label>
+                                <label class="checklist__item">
+                                    <input type="checkbox" data-save="semantica-2">
+                                    Imagens devem ter alt descritivo
+                                </label>
+                                <label class="checklist__item">
+                                    <input type="checkbox" data-save="semantica-3">
+                                    Formulários precisam de labels associados
+                                </label>
+                            </div>
+                            <div class="code-example">
+                                <pre><code>&lt;header role="banner"&gt;
+    &lt;nav role="navigation"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#" aria-label="Início"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Responsividade -->
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <h3>Responsividade</h3>
+                            <span class="accordion__icon">+</span>
+                        </button>
+                        <div class="accordion__content">
+                            <div class="checklist">
+                                <label class="checklist__item">
+                                    <input type="checkbox" data-save="responsivo-1">
+                                    Design Mobile First
+                                </label>
+                                <label class="checklist__item">
+                                    <input type="checkbox" data-save="responsivo-2">
+                                    Use unidades relativas (rem, em, %)
+                                </label>
+                                <label class="checklist__item">
+                                    <input type="checkbox" data-save="responsivo-3">
+                                    Flexbox/Grid para layouts adaptáveis
+                                </label>
+                            </div>
+                            <div class="code-example">
+                                <pre><code>.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mais seções serão adicionadas -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <nav class="footer__nav">
+                <ul class="footer__menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tecnologias.html">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                    <li><a href="fluxo.html">Fluxo</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+            <p class="footer__copy">&copy; 2025 Guia Profissional de Desenvolvimento Web</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/boas-praticas.js"></script>
+</body>
+</html>

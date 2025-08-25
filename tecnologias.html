@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologias - Guia Profissional de Desenvolvimento Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">Guia Profissional de Desenvolvimento Web</h1>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="nav__toggle-bar"></span>
+                    <span class="nav__toggle-bar"></span>
+                    <span class="nav__toggle-bar"></span>
+                </button>
+                <ul class="nav__menu" id="nav-menu">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="tecnologias.html" class="nav__link">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html" class="nav__link">Boas Práticas</a></li>
+                    <li><a href="fluxo.html" class="nav__link">Fluxo</a></li>
+                    <li><a href="quiz.html" class="nav__link">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="tecnologias">
+            <div class="tecnologias__container">
+                <h2 class="section-title">Tecnologias Web</h2>
+                
+                <div class="filters">
+                    <div class="search-box">
+                        <input type="text" id="search" placeholder="Buscar tecnologia..." aria-label="Buscar tecnologia">
+                    </div>
+                    <div class="filter-buttons" role="group" aria-label="Filtrar por categoria">
+                        <button class="filter-btn active" data-filter="todos">Todos</button>
+                        <button class="filter-btn" data-filter="frontend">Front-end</button>
+                        <button class="filter-btn" data-filter="backend">Back-end</button>
+                        <button class="filter-btn" data-filter="database">Bancos de Dados</button>
+                        <button class="filter-btn" data-filter="devops">DevOps</button>
+                        <button class="filter-btn" data-filter="testes">Testes</button>
+                    </div>
+                </div>
+
+                <div class="tech-grid">
+                    <!-- Front-end -->
+                    <article class="tech-card" data-category="frontend">
+                        <div class="tech-card__header">
+                            <h3>React</h3>
+                            <span class="badge" data-level="intermediario">Intermediário</span>
+                        </div>
+                        <p>Biblioteca JavaScript para construção de interfaces de usuário.</p>
+                        <div class="tech-card__details">
+                            <div class="pros-cons">
+                                <h4>Prós:</h4>
+                                <ul>
+                                    <li>Ecossistema rico</li>
+                                    <li>Grande comunidade</li>
+                                </ul>
+                                <h4>Contras:</h4>
+                                <ul>
+                                    <li>Curva de aprendizado</li>
+                                    <li>Bundle size</li>
+                                </ul>
+                            </div>
+                            <button class="tech-card__btn" data-modal-target="modal-react">Saiba mais</button>
+                        </div>
+                    </article>
+
+                    <!-- Back-end -->
+                    <article class="tech-card" data-category="backend">
+                        <div class="tech-card__header">
+                            <h3>Node.js</h3>
+                            <span class="badge" data-level="intermediario">Intermediário</span>
+                        </div>
+                        <p>Ambiente de execução JavaScript server-side.</p>
+                        <div class="tech-card__details">
+                            <div class="pros-cons">
+                                <h4>Prós:</h4>
+                                <ul>
+                                    <li>Mesma linguagem full-stack</li>
+                                    <li>NPM (gestor de pacotes)</li>
+                                </ul>
+                                <h4>Contras:</h4>
+                                <ul>
+                                    <li>Single-threaded</li>
+                                    <li>Callback hell</li>
+                                </ul>
+                            </div>
+                            <button class="tech-card__btn" data-modal-target="modal-node">Saiba mais</button>
+                        </div>
+                    </article>
+
+                    <!-- Mais cards serão adicionados via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modais -->
+    <div id="modal-container" class="modal" aria-hidden="true">
+        <div class="modal__content" role="dialog">
+            <button class="modal__close" aria-label="Fechar modal">&times;</button>
+            <h2 class="modal__title"></h2>
+            <div class="modal__body"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <nav class="footer__nav">
+                <ul class="footer__menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tecnologias.html">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                    <li><a href="fluxo.html">Fluxo</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+            <p class="footer__copy">&copy; 2025 Guia Profissional de Desenvolvimento Web</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/tecnologias.js"></script>
+</body>
+</html>
