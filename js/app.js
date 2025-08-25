@@ -1,87 +1,75 @@
-// Tema
-function initTheme() {
-    const theme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-}
 
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-}
-
-// Menu mobile
+// ========== MENU RESPONSIVO ACESSÍVEL ==========
 const navToggle = document.querySelector('.nav__toggle');
-const navMenu = document.querySelector('.nav__menu');
-const themeToggle = document.querySelector('.theme-toggle');
-
+const navMenu = document.getElementById('nav-menu');
 if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        const isExpanded = navMenu.classList.contains('active');
-        navToggle.setAttribute('aria-expanded', isExpanded);
-    });
-}
-
-// Fechar menu ao clicar em um link
-const navLinks = document.querySelectorAll('.nav__link');
-navLinks.forEach(link => {
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !expanded);
+    navMenu.classList.toggle('nav__menu--open');
+  });
+  // Fechar menu ao clicar em um link
+  document.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
+      navMenu.classList.remove('nav__menu--open');
+      navToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+}
+// Fechar menu ao pressionar ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navMenu.classList.contains('nav__menu--open')) {
+    navMenu.classList.remove('nav__menu--open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.focus();
+  }
 });
 
-// Tema claro/escuro com persistência
+// ========== TEMA CLARO/ESCURO ACESSÍVEL ==========
+const themeToggle = document.querySelector('.theme-toggle');
 const root = document.documentElement;
-
+const THEME_KEY = 'theme';
 function setTheme(theme) {
-    root.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+  if (theme === 'dark') {
+    root.classList.add('dark');
+    themeToggle.setAttribute('aria-pressed', 'true');
+  } else {
+    root.classList.remove('dark');
+    themeToggle.setAttribute('aria-pressed', 'false');
+  }
+  localStorage.setItem(THEME_KEY, theme);
 }
-
-function toggleTheme() {
-    const current = root.getAttribute('data-theme') || 'light';
-    setTheme(current === 'dark' ? 'light' : 'dark');
+// Detecta preferência inicial
+const savedTheme = localStorage.getItem(THEME_KEY);
+if (savedTheme) {
+  setTheme(savedTheme);
+} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  setTheme('dark');
 }
-
-// Inicialização do tema
-(function () {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setTheme('dark');
-    } else {
-        setTheme('light');
-    }
-})();
-
-if (themeToggle) {
-    themeToggle.addEventListener('click', toggleTheme);
-}
-
-// Teclas de atalho: '/' para busca, Alt+M para menu, Home para topo
-window.addEventListener('keydown', (e) => {
-    // '/' foca na busca se existir
-    if (e.key === '/' && document.getElementById('search')) {
-        e.preventDefault();
-        document.getElementById('search').focus();
-    }
-    // Alt+M foca no menu
-    if (e.altKey && (e.key === 'm' || e.key === 'M')) {
-        e.preventDefault();
-        const navMenu = document.getElementById('nav-menu');
-        if (navMenu) navMenu.querySelector('a').focus();
-    }
-    // Home sobe para o topo
-    if (e.key === 'Home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+themeToggle.addEventListener('click', () => {
+  const isDark = root.classList.contains('dark');
+  setTheme(isDark ? 'light' : 'dark');
 });
 
-// Inicialização
-document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
+// ========== TECLAS DE ACESSIBILIDADE ==========
+document.addEventListener('keydown', (e) => {
+  // '/' foca na busca se existir
+  if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+    e.preventDefault();
+    const search = document.querySelector('input[type="search"]');
+    if (search) search.focus();
+  }
+  // Alt+M foca no menu
+  if (e.altKey && (e.key === 'm' || e.key === 'M')) {
+    e.preventDefault();
+    navToggle.focus();
+  }
+  // Home foca no conteúdo principal
+  if (e.key === 'Home') {
+    e.preventDefault();
+    document.getElementById('main-content').focus();
+  }
 });
+
+// Foco visível para navegação por teclado (CSS recomendado)
+// :focus { outline: 2px solid #2563EB; outline-offset: 2px; }

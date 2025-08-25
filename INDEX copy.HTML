@@ -10,32 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
+    <header class="header" role="banner">
         <div class="header__container">
-            <h1 class="header__title">Guia Profissional de Desenvolvimento Web</h1>
-            <nav class="nav">
-                <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+            <div class="header__branding">
+                <h1 class="header__title">Guia Profissional de Desenvolvimento Web</h1>
+                <span class="header__desc" style="font-size:1.1rem;color:#2563EB;font-family:var(--font-body);font-weight:500;letter-spacing:0.2px;">Seu caminho para o mercado digital</span>
+            </div>
+            <nav class="nav" role="navigation" aria-label="Menu principal">
+                <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu" tabindex="0">
                     <span class="nav__toggle-bar"></span>
                     <span class="nav__toggle-bar"></span>
                     <span class="nav__toggle-bar"></span>
                 </button>
                 <ul class="nav__menu" id="nav-menu">
-                    <li><a href="index.html" class="nav__link">Home</a></li>
-                    <li><a href="tecnologias.html" class="nav__link">Tecnologias</a></li>
-                    <li><a href="boas-praticas.html" class="nav__link">Boas Práticas</a></li>
-                    <li><a href="fluxo.html" class="nav__link">Fluxo</a></li>
-                    <li><a href="quiz.html" class="nav__link">Quiz</a></li>
+                    <li><a href="index.html" class="nav__link" tabindex="0">Home</a></li>
+                    <li><a href="tecnologias.html" class="nav__link" tabindex="0">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html" class="nav__link" tabindex="0">Boas Práticas</a></li>
+                    <li><a href="fluxo.html" class="nav__link" tabindex="0">Fluxo</a></li>
+                    <li><a href="quiz.html" class="nav__link" tabindex="0">Quiz</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <section class="hero">
             <div class="hero__container">
                 <h2 class="hero__title">Aprenda desenvolvimento web do jeito certo</h2>
                 <p class="hero__text">Descubra as tecnologias, boas práticas e o fluxo de trabalho dos desenvolvedores profissionais.</p>
-                <a href="#web-basics" class="button">Começar</a>
+                <a href="#web-basics" class="button" style="margin-top:1.5rem;box-shadow:0 4px 16px 0 rgba(37,99,235,0.10);">Começar</a>
             </div>
         </section>
 
@@ -76,23 +79,23 @@
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer__container">
-            <nav class="footer__nav">
+            <nav class="footer__nav" aria-label="Links do rodapé">
                 <ul class="footer__menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="tecnologias.html">Tecnologias</a></li>
-                    <li><a href="boas-praticas.html">Boas Práticas</a></li>
-                    <li><a href="fluxo.html">Fluxo</a></li>
-                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="index.html" tabindex="0">Home</a></li>
+                    <li><a href="tecnologias.html" tabindex="0">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html" tabindex="0">Boas Práticas</a></li>
+                    <li><a href="fluxo.html" tabindex="0">Fluxo</a></li>
+                    <li><a href="quiz.html" tabindex="0">Quiz</a></li>
                 </ul>
             </nav>
-            <p class="footer__copy">&copy; 2025 Guia Profissional de Desenvolvimento Web</p>
+            <p class="footer__copy">&copy; 2025 Guia Profissional de Desenvolvimento Web. Feito com <span aria-label="amor" style="color:#10B981">&#10084;&#65039;</span> para o futuro do seu aprendizado.</p>
         </div>
     </footer>
 
-    <button class="theme-toggle" aria-label="Alternar tema claro/escuro">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button class="theme-toggle" aria-label="Alternar tema claro/escuro" aria-pressed="false" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
             <circle cx="12" cy="12" r="5"/>
             <line x1="12" y1="1" x2="12" y2="3"/>
             <line x1="12" y1="21" x2="12" y2="23"/>
@@ -106,5 +109,13 @@
     </button>
 
     <script src="js/app.js"></script>
+    <!--
+        Acessibilidade e JS:
+        - O botão .nav__toggle deve abrir/fechar o menu mobile e atualizar aria-expanded.
+        - O botão .theme-toggle deve alternar tema claro/escuro, salvar no localStorage e atualizar aria-pressed.
+        - Garanta foco visível via CSS (outline).
+        - Use landmarks e tabindex para navegação por teclado.
+        - Adicione aria-* em todos componentes interativos.
+    -->
 </body>
 </html>
