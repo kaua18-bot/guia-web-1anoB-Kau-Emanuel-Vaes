@@ -1,3 +1,10 @@
+/* Base */
+@import url('base/variables.css');
+
+/* Components */
+@import url('components/buttons.css');
+@import url('components/cards.css');
+
 :root {
     /* Cores principais - Paleta moderna e sofisticada */
     --color-primary: #3B82F6;     /* Azul vibrante */
@@ -170,7 +177,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
-}
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -187,8 +193,8 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
-    transition: color 0.3s;
+    color: transparent;
+    transition: all 0.3s;
 }
 
 :focus {
@@ -256,9 +262,9 @@ body {
     border-radius: 1.5rem;
     padding: 2rem 1.5rem;
     box-shadow: 0 2px 8px 0 rgba(16,185,129,0.08);
+    transition: all 0.3s;
 }
 
-    transition: all 0.3s;
 .hero__title {
     font-family: var(--font-headings);
     font-size: 3rem;

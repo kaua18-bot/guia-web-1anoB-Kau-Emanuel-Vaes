@@ -1,22 +1,28 @@
 
 // ========== MENU RESPONSIVO ACESSÍVEL ==========
-const navToggle = document.querySelector('.nav__toggle');
-const navMenu = document.getElementById('nav-menu');
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', !expanded);
-    navMenu.classList.toggle('nav__menu--open');
-  });
-  // Fechar menu ao clicar em um link
-  document.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('nav__menu--open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-// Fechar menu ao pressionar ESC
+document.addEventListener('DOMContentLoaded', () => {
+    // Suporte para menu antigo e novo
+    const navToggle = document.querySelector('.nav__toggle, .enterprise-nav__toggle');
+    const navMenu = document.querySelector('#nav-menu, .enterprise-nav__menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('nav__menu--open');
+            navMenu.classList.toggle('enterprise-nav__menu--open');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav__link, .enterprise-nav__item').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('nav__menu--open', 'enterprise-nav__menu--open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // Fechar menu ao pressionar ESC
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && navMenu.classList.contains('nav__menu--open')) {
     navMenu.classList.remove('nav__menu--open');
@@ -72,4 +78,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Foco visível para navegação por teclado (CSS recomendado)
-// :focus { outline: 2px solid #2563EB; outline-offset: 2px; }
+// Adicionar estilo de foco
+const style = document.createElement('style');
+style.textContent = ':focus { outline: 2px solid #2563EB; outline-offset: 2px; }';
+document.head.appendChild(style);
