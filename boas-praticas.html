@@ -48,6 +48,48 @@
                             <span class="accordion__icon">+</span>
                         </button>
                         <div class="accordion__content">
+                            <div class="practice-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="practice-checkbox" data-category="semantica">
+                                    <span>Uso correto de landmarks (header, nav, main, footer)</span>
+                                </label>
+                                <div class="code-example">
+                                    <pre><code>&lt;header role="banner"&gt;
+    &lt;nav role="navigation"&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main role="main"&gt;
+    &lt;article&gt;...&lt;/article&gt;
+&lt;/main&gt;</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="practice-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="practice-checkbox" data-category="semantica">
+                                    <span>Imagens com alt descritivo</span>
+                                </label>
+                                <div class="code-example">
+                                    <pre><code>&lt;img src="logo.png" 
+     alt="Logo da empresa - Um círculo azul com ondas"
+     width="200" 
+     height="100"&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="practice-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="practice-checkbox" data-category="semantica">
+                                    <span>Formulários com labels associados</span>
+                                </label>
+                                <div class="code-example">
+                                    <pre><code>&lt;label for="email"&gt;E-mail:&lt;/label&gt;
+&lt;input type="email" id="email" 
+       name="email" 
+       aria-required="true"&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                             <div class="checklist">
                                 <label class="checklist__item">
                                     <input type="checkbox" data-save="semantica-1">
@@ -81,31 +123,74 @@
                             <span class="accordion__icon">+</span>
                         </button>
                         <div class="accordion__content">
-                            <div class="checklist">
-                                <label class="checklist__item">
-                                    <input type="checkbox" data-save="responsivo-1">
-                                    Design Mobile First
+                            <div class="practice-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="practice-checkbox" data-category="responsivo">
+                                    <span>Design Mobile First</span>
                                 </label>
-                                <label class="checklist__item">
-                                    <input type="checkbox" data-save="responsivo-2">
-                                    Use unidades relativas (rem, em, %)
-                                </label>
-                                <label class="checklist__item">
-                                    <input type="checkbox" data-save="responsivo-3">
-                                    Flexbox/Grid para layouts adaptáveis
-                                </label>
-                            </div>
-                            <div class="code-example">
-                                <pre><code>.container {
-    max-width: 1200px;
-    margin: 0 auto;
+                                <div class="code-example">
+                                    <pre><code>/* Mobile First */
+.card {
+    width: 100%;
     padding: 1rem;
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 0.5rem;
+/* Tablets e acima */
+@media (min-width: 768px) {
+    .card {
+        width: 50%;
     }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .card {
+        width: 33.333%;
+    }
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="practice-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="practice-checkbox" data-category="responsivo">
+                                    <span>Grid Layout Responsivo</span>
+                                </label>
+                                <div class="code-example">
+                                    <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, 
+        minmax(300px, 1fr)
+    );
+    gap: 1rem;
+    padding: 1rem;
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="practice-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="practice-checkbox" data-category="responsivo">
+                                    <span>Imagens Responsivas</span>
+                                </label>
+                                <div class="code-example">
+                                    <pre><code>&lt;picture&gt;
+    &lt;source 
+        media="(min-width: 800px)" 
+        srcset="imagem-grande.jpg"&gt;
+    &lt;source 
+        media="(min-width: 400px)" 
+        srcset="imagem-media.jpg"&gt;
+    &lt;img 
+        src="imagem-pequena.jpg" 
+        alt="Descrição"
+        loading="lazy"&gt;
+&lt;/picture&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 }</code></pre>
                             </div>
                         </div>

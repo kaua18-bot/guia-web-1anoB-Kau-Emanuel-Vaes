@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz - Guia Profissional de Desenvolvimento Web</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/quiz-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
@@ -30,24 +31,59 @@
         </div>
     </header>
 
-    <main>
-        <section class="quiz">
-            <div class="quiz__container">
-                <h2 class="section-title">Teste seus Conhecimentos</h2>
+    <main class="container">
+        <section class="quiz-section fade-in">
+            <h2>Teste seus Conhecimentos em Desenvolvimento Web</h2>
+            
+            <div class="quiz-container">
+                <div class="quiz-progress" aria-live="polite"></div>
                 
-                <div class="quiz__info">
-                    <p>Melhor pontuação: <span id="best-score">0</span>/10</p>
-                </div>
-
-                <div class="quiz__content">
-                    <div id="quiz-start" class="quiz__start active">
-                        <p>Este quiz contém 10 questões sobre desenvolvimento web.</p>
-                        <button id="start-btn" class="button">Iniciar Quiz</button>
+                <div class="question-container">
+                    <h3 class="question" aria-live="polite"></h3>
+                    
+                    <div class="options" role="radiogroup">
+                        <!-- Opções serão inseridas via JavaScript -->
                     </div>
-
-                    <div id="quiz-questions" class="quiz__questions">
-                        <div class="quiz__progress">
-                            <span>Questão <span id="current-question">1</span>/10</span>
+                    
+                    <div class="explanation" aria-live="polite"></div>
+                    
+                    <button class="btn btn-primary next-btn" style="display: none;">
+                        Próxima Questão
+                    </button>
+                </div>
+            </div>
+            
+            <div class="quiz-result" style="display: none;">
+                <h3>Resultado Final</h3>
+                <p class="score"></p>
+                <p class="high-score"></p>
+                <button class="btn btn-primary restart-btn">Tentar Novamente</button>
+                
+                <div class="learning-resources">
+                    <h4>Recursos para Estudo</h4>
+                    <ul>
+                        <li>
+                            <a href="tecnologias.html">Explore nossa seção de Tecnologias</a>
+                        </li>
+                        <li>
+                            <a href="boas-praticas.html">Revise as Boas Práticas</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org" target="_blank" rel="noopener">
+                                MDN Web Docs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="keyboard-shortcuts">
+                <h4>Atalhos do Teclado</h4>
+                <ul>
+                    <li><kbd>1</kbd> - <kbd>4</kbd>: Selecionar resposta</li>
+                    <li><kbd>Enter</kbd>: Próxima questão</li>
+                </ul>
+            </div>
                         </div>
 
                         <div class="question">
