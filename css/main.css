@@ -1,0 +1,26 @@
+/* Base */
+@import 'base/variables.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
+
+/* Components */
+@import 'components/buttons.css';
+@import 'components/cards.css';
+@import 'components/forms.css';
+@import 'components/navigation.css';
+
+/* Layout */
+@import 'layout/header.css';
+@import 'layout/footer.css';
+@import 'layout/grid.css';
+
+/* Pages */
+@import 'pages/home.css';
+@import 'pages/technologies.css';
+@import 'pages/best-practices.css';
+@import 'pages/quiz.css';
+
+/* Utils */
+@import 'utils/animations.css';
+@import 'utils/helpers.css';
+@import 'utils/themes.css';
