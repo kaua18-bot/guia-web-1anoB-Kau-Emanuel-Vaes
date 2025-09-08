@@ -5,33 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia Profissional de Desenvolvimento Web</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enterprise-components.css">
+    <link rel="stylesheet" href="css/enterprise-animations.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header" role="banner">
-        <div class="header__container">
-            <div class="header__branding">
-                <h1 class="header__title">Guia Profissional de Desenvolvimento Web</h1>
-                <span class="header__desc" style="font-size:1.1rem;color:#2563EB;font-family:var(--font-body);font-weight:500;letter-spacing:0.2px;">Seu caminho para o mercado digital</span>
+    <header class="enterprise-header" role="banner">
+        <nav class="enterprise-nav" role="navigation" aria-label="Menu principal">
+            <a href="/" class="enterprise-nav__logo">
+                <h1>Guia Web Pro</h1>
+            </a>
+            <div class="enterprise-nav__menu">
+                <a href="tecnologias.html" class="enterprise-nav__item">Tecnologias</a>
+                <a href="boas-praticas.html" class="enterprise-nav__item">Boas Práticas</a>
+                <a href="fluxo.html" class="enterprise-nav__item">Fluxo</a>
+                <a href="quiz.html" class="enterprise-nav__item">Quiz</a>
             </div>
-            <nav class="nav" role="navigation" aria-label="Menu principal">
-                <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu" tabindex="0">
-                    <span class="nav__toggle-bar"></span>
-                    <span class="nav__toggle-bar"></span>
-                    <span class="nav__toggle-bar"></span>
-                </button>
-                <ul class="nav__menu" id="nav-menu">
-                    <li><a href="index.html" class="nav__link" tabindex="0">Home</a></li>
-                    <li><a href="tecnologias.html" class="nav__link" tabindex="0">Tecnologias</a></li>
-                    <li><a href="boas-praticas.html" class="nav__link" tabindex="0">Boas Práticas</a></li>
-                    <li><a href="fluxo.html" class="nav__link" tabindex="0">Fluxo</a></li>
-                    <li><a href="quiz.html" class="nav__link" tabindex="0">Quiz</a></li>
-                </ul>
-            </nav>
-        </div>
+        </nav>
     </header>
+
+    <main>
+        <section class="enterprise-hero">
+            <div class="enterprise-hero__content">
+                <div>
+                    <h2 class="enterprise-hero__title">Guia Profissional de Desenvolvimento Web</h2>
+                    <p>Seu caminho para o mercado digital, com as melhores práticas e tecnologias modernas.</p>
+                    <a href="tecnologias.html" class="enterprise-btn enterprise-btn--primary fade-in">Começar Agora</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: var(--space-16) 0; max-width: var(--container-lg); margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); padding: 0 var(--space-6);">
+                <article class="enterprise-card slide-up">
+                    <h3 style="color: var(--color-primary-600); margin-bottom: var(--space-4);">Tecnologias</h3>
+                    <p>Explore as tecnologias essenciais para desenvolvimento web moderno.</p>
+                    <a href="tecnologias.html" class="enterprise-btn enterprise-btn--primary" style="margin-top: var(--space-4);">Ver Mais</a>
+                </article>
+
+                <article class="enterprise-card slide-up" style="animation-delay: 0.2s;">
+                    <h3 style="color: var(--color-primary-600); margin-bottom: var(--space-4);">Boas Práticas</h3>
+                    <p>Aprenda as melhores práticas do mercado para código limpo e manutenível.</p>
+                    <a href="boas-praticas.html" class="enterprise-btn enterprise-btn--primary" style="margin-top: var(--space-4);">Ver Mais</a>
+                </article>
+
+                <article class="enterprise-card slide-up" style="animation-delay: 0.4s;">
+                    <h3 style="color: var(--color-primary-600); margin-bottom: var(--space-4);">Fluxo de Trabalho</h3>
+                    <p>Entenda o fluxo de desenvolvimento profissional e ferramentas essenciais.</p>
+                    <a href="fluxo.html" class="enterprise-btn enterprise-btn--primary" style="margin-top: var(--space-4);">Ver Mais</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/enterprise.js"></script>
 
     <main id="main-content" tabindex="-1">
         <section class="hero">
