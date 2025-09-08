@@ -3,6 +3,36 @@
  * Seguindo padrões de acessibilidade WCAG 2.1
  */
 
+/* Corinthians Theme Button Components */
+:root {
+    --color-corinthians-black: #000000;
+    --color-corinthians-white: #ffffff;
+    --color-corinthians-gold: #c9b037;
+    --color-corinthians-silver: #b4b4b4;
+    --color-primary-500: var(--color-corinthians-black);
+    --color-primary-600: #222222;
+    --color-primary-700: #444444;
+    --color-primary-50: var(--color-corinthians-silver);
+    --color-error: #EF4444;
+    --color-neutral-200: var(--color-corinthians-silver);
+    --color-neutral-700: var(--color-corinthians-black);
+    --font-family-body: 'Montserrat', Arial, sans-serif;
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.15);
+    --radius-md: 8px;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+    --font-weight-medium: 600;
+    --line-height-normal: 1.5;
+    --transition-duration-normal: 0.2s;
+    --transition-timing: ease-in-out;
+}
+
 .btn {
     /* Base Styles */
     display: inline-flex;
@@ -17,15 +47,18 @@
     line-height: var(--line-height-normal);
     text-decoration: none;
     cursor: pointer;
-    transition: all var(--transition-duration-normal) var(--transition-timing);
+    transition: box-shadow 0.25s var(--transition-timing), transform 0.18s var(--transition-timing), background 0.25s var(--transition-timing), color 0.18s var(--transition-timing);
     position: relative;
     overflow: hidden;
     border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    letter-spacing: 0.03em;
     
     /* Accessibility */
     &:focus-visible {
-        outline: 2px solid var(--color-primary-500);
+        outline: 2px solid var(--color-corinthians-gold);
         outline-offset: 2px;
+        box-shadow: 0 0 0 4px rgba(201,176,55,0.15);
     }
     
     /* Loading State */
@@ -38,69 +71,68 @@
     &:disabled {
         cursor: not-allowed;
         opacity: 0.5;
+        filter: grayscale(0.3);
     }
 }
 
 /* Primary Button */
 .btn--primary {
-    background: linear-gradient(
-        135deg,
-        var(--color-primary-500),
-        var(--color-primary-600)
-    );
-    color: white;
-    
+    background: linear-gradient(120deg, var(--color-corinthians-black) 60%, var(--color-corinthians-gold) 100%);
+    color: var(--color-corinthians-white);
+    border: 1.5px solid var(--color-corinthians-gold);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.10);
     &:hover:not(:disabled) {
-        background: linear-gradient(
-            135deg,
-            var(--color-primary-600),
-            var(--color-primary-700)
-        );
-        transform: translateY(-1px);
-        box-shadow: var(--shadow-md);
+        background: linear-gradient(120deg, var(--color-corinthians-gold) 40%, var(--color-corinthians-black) 100%);
+        color: var(--color-corinthians-gold);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+        transform: translateY(-2px) scale(1.04);
     }
-    
     &:active:not(:disabled) {
-        transform: translateY(0);
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
 }
 
 /* Secondary Button */
 .btn--secondary {
-    background: white;
-    border: 1px solid var(--color-neutral-200);
-    color: var(--color-neutral-700);
-    
+    background: var(--color-corinthians-white);
+    border: 1.5px solid var(--color-corinthians-black);
+    color: var(--color-corinthians-black);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     &:hover:not(:disabled) {
-        border-color: var(--color-primary-500);
-        color: var(--color-primary-500);
-        background: var(--color-primary-50);
+        background: var(--color-corinthians-gold);
+        color: var(--color-corinthians-black);
+        border-color: var(--color-corinthians-gold);
+        box-shadow: 0 4px 16px rgba(201,176,55,0.12);
+        transform: translateY(-1px) scale(1.03);
     }
 }
 
 /* Ghost Button */
 .btn--ghost {
     background: transparent;
-    color: var(--color-primary-500);
-    
+    color: var(--color-corinthians-black);
+    border: 1.5px dashed var(--color-corinthians-gold);
+    box-shadow: none;
     &:hover:not(:disabled) {
-        background: var(--color-primary-50);
+        background: var(--color-corinthians-silver);
+        color: var(--color-corinthians-gold);
+        border-style: solid;
+        box-shadow: 0 2px 8px rgba(180,180,180,0.10);
     }
 }
 
 /* Danger Button */
 .btn--danger {
-    background: linear-gradient(
-        135deg,
-        var(--color-error),
-        #EF4444
-    );
-    color: white;
-    
+    background: linear-gradient(120deg, var(--color-error) 60%, var(--color-corinthians-black) 100%);
+    color: var(--color-corinthians-white);
+    border: 1.5px solid var(--color-error);
+    box-shadow: 0 4px 16px rgba(239,68,68,0.18);
     &:hover:not(:disabled) {
-        transform: translateY(-1px);
-        box-shadow: var(--shadow-md);
         filter: brightness(110%);
+        box-shadow: 0 8px 24px rgba(239,68,68,0.22);
+        transform: translateY(-2px) scale(1.04);
     }
 }
 
@@ -108,11 +140,13 @@
 .btn--sm {
     padding: var(--space-2) var(--space-4);
     font-size: var(--font-size-sm);
+    border-radius: 6px;
 }
 
 .btn--lg {
     padding: var(--space-4) var(--space-8);
     font-size: var(--font-size-lg);
+    border-radius: 12px;
 }
 
 /* Button with Icon */
@@ -122,6 +156,7 @@
     justify-content: center;
     width: 1.25em;
     height: 1.25em;
+    transition: color 0.18s var(--transition-timing), transform 0.18s var(--transition-timing);
     
     &--left {
         margin-right: var(--space-2);
